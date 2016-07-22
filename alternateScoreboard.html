@@ -1,0 +1,543 @@
+<!doctype HTML>
+
+<html>
+
+
+<head>
+
+<title>
+</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/jsonQ-master/jsonQ-master/jsonQ.min.js"></script>
+  <script src="js/mlb.json"></script>
+<style>
+
+
+body {
+background-color:#eff5f5;
+font-family: "Oswald", Georgia, Serif;
+}
+
+div{
+color:#000099;
+font-size: 20px;
+}
+
+h2{
+text-align:center;
+color:#000099
+}
+
+.opposing-teams{
+padding-right:200px;
+}
+
+h3{
+display: inline;
+}
+
+.pitcher{
+display:none;
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+<span><img  src="images/mlb.png" alt="major league baseball logo"><h3>MLB</h3></span>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  
+    <ul class="nav navbar-nav">
+      <li><a href = "http://espn.go.com">Home</a></li>
+   <li><a href = "http://espn.go.com/nfl">NFL</a></li>
+   <li><a href = "http://espn.go.com/nba">NBA</a></li>
+   <li><a href = "http://espn.go.com/college-football">NCAAF</a></li>
+   <li><a href = "http://espnfc.us">Soccer</a></li>
+   <li><a href = "http://espn.go.com/tennis">Tennis</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <div id="team" class="name"></div>
+	<div class="pName"></div>
+	<img class="pitcher" id="pitch1"src="images/maxscherzer.png" alt="max_scherzer">
+    <p class="pitcher" id="pitch-name1">Max Scherzer</p>
+	<img class="pitcher" id="pitch2" src="images/tkoehler.png" alt="tkoehler">
+	<p class="pitcher" id="pitch-name2">Tom Koehler</p>
+<br><br>
+<h2>CLICK ON TEAM FOR SCORE</h2>
+<span class="opposing-teams">
+<a href=#><img class="team1" src="images/nats.png" alt="nats"></a>
+<a href=#><img class="team1" src="images/marlins.png" alt="marlins"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team4" src="images/rockies.png" alt="rockies"></a>
+<a href=#><img class="team4" src="images/diamondbacks.png" alt="diamondbacks"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team7" src="images/giants.png" alt="giants"></a>
+<a href=#><img class="team7" src="images/padres.png" alt="padres"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team13" src="images/mets.png" alt="mets"></a>
+<a href=#><img class="team13" src="images/orioles.png" alt="orioles"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team16" src="images/pirates.png" alt="pirates"></a>
+<a href=#><img class="team16" src="images/cubs.png" alt="cubs"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team19" src="images/bluejays.png" alt="bluejays"></a>
+<a href=#><img class="team19" src="images/yankees.png" alt="yankees"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team22" src="images/redsox.png" alt="redsox"></a>
+<a href=#><img class="team22" src="images/rays.png" alt="rays"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team25" src="images/braves.png" alt="braves"></a>
+<a href=#><img class="team25" src="images/phillies.png" alt="phillies"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team28" src="images/whitesox.png" alt="whitesox"></a>
+<a href=#><img class="team28" src="images/tigers.png" alt="tigers"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team31" src="images/royals.png" alt="royals"></a>
+<a href=#><img class="team31" src="images/indians.png" alt="indians"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team34" src="images/brewers.png" alt="brewers"></a>
+<a href=#><img class="team34" src="images/dodgers.png" alt="dodgers"></a>
+</span>
+<span class="opposing-teams">
+<a href=#><img class="team36" src="images/twins.png" alt="twins"></a>
+<a href=#><img class="team36" src="images/athletics.png" alt="athletics"></a>
+</span>
+
+<p id="standings">STANDINGS </p>
+<p id="league">AMERICAN LEAGUE</p>
+<ul class="nav nav-pills">
+  <li class="active"><a data-toggle="pill" href="#ALEAST">EAST</a></li>
+  <li><a data-toggle="pill" href="#ALCENTRAL">CENTRAL</a></li>
+  <li><a data-toggle="pill" href="#ALWEST">WEST</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="ALEAST" class="tab-pane fade in active">
+  <table class="table table-condensed" style="width:50% ">
+  <tr>
+    <td></td>
+    <td>W</td>
+    <td>L</td>
+    <td>%</td>
+    <td>GB</td>
+  </tr>
+  <tr>
+    <td>Baltimore</td>
+    <td>47</td>
+    <td>35</td>
+    <td>.573</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Boston</td>
+    <td>45</td>
+    <td>37</td>
+    <td>.549</td>
+    <td>2.0</td>
+  </tr>
+<tr>
+    <td>Toronto</td>
+    <td>46</td>
+    <td>39</td>
+    <td>.541</td>
+    <td>2.5</td>
+  </tr>
+<tr>
+    <td>New York</td>
+    <td>40</td>
+    <td>42</td>
+    <td>.488</td>
+    <td>7.0</td>
+  </tr>
+<tr>
+    <td>Tampa Bay</td>
+    <td>34</td>
+    <td>48</td>
+     <td>.415</td>
+    <td>13.0</td>
+  </tr>
+</table>
+</div>
+  <div id="ALCENTRAL" class="tab-pane fade">
+    <table class="table table-condensed" style="width:50%">
+  <tr>
+    <td></td>
+    <td>W</td>
+    <td>L</td>
+    <td>%</td>
+    <td>GB</td>
+  </tr>
+  <tr>
+    <td>Cleveland</td>
+    <td>50</td>
+    <td>32</td>
+    <td>.610</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Detroit</td>
+    <td>44</td>
+    <td>39</td>
+    <td>.530</td>
+    <td>6.5</td>
+  </tr>
+<tr>
+    <td>Kansas City</td>
+    <td>43</td>
+    <td>39</td>
+    <td>.524</td>
+    <td>7.0</td>
+  </tr>
+<tr>
+    <td>Chi White Sox</td>
+    <td>43</td>
+    <td>40</td>
+    <td>.518</td>
+    <td>7.5</td>
+  </tr>
+<tr>
+    <td>Minnesota</td>
+    <td>27</td>
+    <td>55</td>
+     <td>.518</td>
+    <td>23.0</td>
+  </tr>
+</table>
+  </div>
+  <div id="ALWEST" class="tab-pane fade">
+    <table class="table table-condensed" style="width:50%">
+  <tr>
+    <td></td>
+    <td>W</td>
+    <td>L</td>
+    <td>%</td>
+    <td>GB</td>
+  </tr>
+  <tr>
+    <td>Texas</td>
+    <td>52</td>
+    <td>32</td>
+    <td>.619</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Houston</td>
+    <td>44</td>
+    <td>39</td>
+    <td>.530</td>
+    <td>7.5</td>
+  </tr>
+<tr>
+    <td>Seattle</td>
+    <td>43</td>
+    <td>40</td>
+    <td>.518</td>
+    <td>8.5</td>
+  </tr>
+<tr>
+    <td>Oakland</td>
+    <td>36</td>
+    <td>47</td>
+    <td>.434</td>
+    <td>15.5</td>
+  </tr>
+<tr>
+    <td>LA Angels</td>
+    <td>33</td>
+    <td>50</td>
+     <td>.398</td>
+    <td>18.5</td>
+  </tr>
+</table>
+  </div>
+</div>
+<hr><br><br>
+
+<p id="standings">STANDINGS </p>
+<p id="league">NATIONAL LEAGUE</p>
+<ul class="nav nav-pills">
+  <li class="active"><a data-toggle="pill" href="#NLEAST">EAST</a></li>
+  <li><a data-toggle="pill" href="#NLCENTRAL">CENTRAL</a></li>
+  <li><a data-toggle="pill" href="#NLWEST">WEST</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="NLEAST" class="tab-pane fade in active">
+  <table class="table table-condensed" style="width:50% ">
+<tr>
+    <td></td>
+    <td>W</td>
+    <td>L</td>
+    <td>%</td>
+    <td>GB</td>
+  </tr>
+  <tr>
+    <td>Washington</td>
+    <td>50</td>
+    <td>34</td>
+    <td>.595</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>NY Mets</td>
+    <td>45</td>
+    <td>37</td>
+    <td>.549</td>
+    <td>4.0</td>
+  </tr>
+<tr>
+    <td>Miami</td>
+    <td>43</td>
+    <td>40</td>
+    <td>.518</td>
+    <td>6.5</td>
+  </tr>
+<tr>
+    <td>Philadelphia</td>
+    <td>39</td>
+    <td>46</td>
+    <td>.459</td>
+    <td>11.5</td>
+  </tr>
+<tr>
+    <td>Atlanta</td>
+    <td>28</td>
+    <td>56</td>
+     <td>.333</td>
+    <td>22.0</td>
+  </tr>
+</table>
+</div>
+
+<div id="NLCENTRAL" class="tab-pane fade ">
+  <table class="table table-condensed" style="width:50% ">
+<tr>
+    <td></td>
+    <td>W</td>
+    <td>L</td>
+    <td>%</td>
+    <td>GB</td>
+  </tr>
+  <tr>
+    <td>Chi Cubs</td>
+    <td>52</td>
+    <td>31</td>
+    <td>.627</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>St. Louis</td>
+    <td>43</td>
+    <td>39</td>
+    <td>.524</td>
+    <td>8.5</td>
+  </tr>
+<tr>
+    <td>Pittsburgh</td>
+    <td>42</td>
+    <td>41</td>
+    <td>.506</td>
+    <td>10.0</td>
+  </tr>
+<tr>
+    <td>Miwaukee</td>
+    <td>36</td>
+    <td>46</td>
+    <td>.439</td>
+    <td>15.5</td>
+  </tr>
+<tr>
+    <td>Cincinnati</td>
+    <td>31</td>
+    <td>54</td>
+     <td>.365</td>
+    <td>22.0</td>
+  </tr>
+</table>
+</div>
+
+<div id="NLWEST" class="tab-pane fade ">
+  <table class="table table-condensed" style="width:50% ">
+<tr>
+    <td></td>
+    <td>W</td>
+    <td>L</td>
+    <td>%</td>
+    <td>GB</td>
+  </tr>
+  <tr>
+    <td>San Francisco</td>
+    <td>53</td>
+    <td>32</td>
+    <td>.624</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>LA Dodgers</td>
+    <td>48</td>
+    <td>37</td>
+    <td>.565</td>
+    <td>5.0</td>
+  </tr>
+<tr>
+    <td>Colorado</td>
+    <td>37</td>
+    <td>45</td>
+    <td>.451</td>
+    <td>14.5</td>
+  </tr>
+<tr>
+    <td>Arizona</td>
+    <td>37</td>
+    <td>48</td>
+    <td>.435</td>
+    <td>16.0</td>
+  </tr>
+<tr>
+    <td>San Diego	</td>
+    <td>36</td>
+    <td>47</td>
+     <td>.434</td>
+    <td>16.0</td>
+  </tr>
+</table>
+</div>
+</div>
+  
+<a href="http://espn.go.com/watchespn"><h3 class="espn-ad">WATCH ESPN NOW</h3><img src="images/sportscenter.jpg" alt="sportscenter" class="espn-ad"></a>
+  <br><br>
+
+
+<script>
+
+	
+$("img").click(function() {
+ var myclass=  $(this).attr("class");
+  
+   $("#team").removeClass();
+   $("#team").empty();
+   $("#team").addClass(myclass);
+   
+
+   for(var i = 0; i < teamName.length; i++){
+	for(var j = 0; j < score.length; j++){
+    }	
+		$(".team"+i).append(teamName[i+1]+" "+ score[i-1]+" "+teamName[i+2]+" "+score[i]+" Venue: " +teamName[i+3]);
+		$(".pName").html("PITCHERS");
+	    $("#pitch"+i).show();
+        $("#pitch-name"+i).show();
+		$("#pitch"+i+1).show();
+   }
+ });
+	
+	
+var score= jsonQ(mlb).find("score").value();  
+var teamName = jsonQ(mlb).find("name").value();
+ var record = jsonQ(mlb).find("summary").value();
+ var describe =jsonQ(mlb).find("detail").value();
+ var pitcherFname= jsonQ(mlb).find("firstName").value();
+ var pitcherLname= jsonQ(mlb).find("lastName").value();
+console.log(teamName);
+console.log(score);
+console.log(record);
+console.log(pitcherFname);
+console.log(pitcherLname);
+
+var dateReg= /\d{4}/;
+/* use of for loops to traverse arrays and append to html */
+for(var j= 0; j < describe.length; j++){
+if(describe[j].toString().match(dateReg)){
+var date = new Date(describe[j]);
+var hour= date.getHours();
+var minutes= date.getMinutes();
+if(hour >= 12){
+hour=hour-12;
+$(".inning"+j).append(hour+":"+minutes+ " PM EST");
+
+}
+
+else
+$(".inning"+j).append(hour+":"+minutes+ " AM EST");
+
+}
+else
+$(".inning"+j).append(describe[j]);
+}
+ 
+
+function startGame(){
+	for(var i = 1; i < teamName.length; i++){
+		
+		$(".team"+i).append(teamName[i+1]);
+	}
+}
+
+for(var i = 0; i < describe.length; i++){
+		
+		
+	}
+
+
+for(var i = 0; i < score.length; i++){
+		
+		$(".score"+i).append(score[i]);
+	}
+
+for(var i = 0; i < record.length; i++){
+		
+		$(".record"+i).append(record[i]);
+	}	
+	
+for(var i = 0; i < pitcherFname.length; i++){
+		for(var j = 0; j < pitcherFname.length; j++){
+		}
+	
+	$(".pfname"+i).append(pitcherFname[i]+  " " +pitcherLname[i]);
+	
+	}
+/* jQuery effects */
+$(".ad").hide();
+$(".ad").fadeIn(3000);
+
+$(".espn-ad").hide();
+$(".espn-ad").fadeIn(3000);
+$(".footer").hide();
+$(".footer").fadeIn(3000);
+
+$('.carousel').carousel({
+    interval: 2000 
+});
+
+
+$(document).ready(function(){
+    startGame();
+});
+
+</script>
+
+</body>
+
+</html>
